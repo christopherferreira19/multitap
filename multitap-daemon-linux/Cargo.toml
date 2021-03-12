@@ -1,0 +1,13 @@
+[package]
+name = "multitap-daemon-linux"
+version = "0.0.1"
+authors = ["yusakufujikifr"]
+edition = "2018"
+
+[dependencies]
+multitap-core           = { path = "../multitap-core" }
+multitap-daemon-core    = { path = "../multitap-daemon-core" }
+multitap-daemon-signals = { path = "../multitap-daemon-signals" }
+multitap-daemon-uds     = { path = "../multitap-daemon-uds" }
+multitap-daemon-evdev   = { path = "../multitap-daemon-evdev" }
+multitap-daemon-udev    = { path = "../multitap-daemon-udev" }

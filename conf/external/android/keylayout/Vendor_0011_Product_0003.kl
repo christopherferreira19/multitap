@@ -1,0 +1,34 @@
+axis 0x000 X
+axis 0x001 Y
+axis 0x003 Z
+axis 0x004 RZ
+axis 0x002 LTRIGGER
+axis 0x005 RTRIGGER
+axis 0x010 HAT_X
+axis 0x011 HAT_Y
+
+key  0x220 DPAD_UP
+key  0x221 DPAD_DOWN
+key  0x222 DPAD_LEFT
+key  0x223 DPAD_RIGHT
+
+key  0x133 BUTTON_X
+key  0x130 BUTTON_B
+key  0x134 BUTTON_Y
+key  0x131 BUTTON_A
+
+key  0x13b BUTTON_START
+key  0x13a BUTTON_SELECT
+key  0x13c BUTTON_MODE
+key  0x135 BUTTON_Z
+
+key  0x136 BUTTON_L1
+key  0x137 BUTTON_R1
+
+key  0x13d BUTTON_THUMBL
+key  0x13e BUTTON_THUMBR
+
+key  0x2c0 BUTTON_1
+key  0x2c1 BUTTON_2
+key  0x2c2 BUTTON_3
+key  0x2c3 BUTTON_4

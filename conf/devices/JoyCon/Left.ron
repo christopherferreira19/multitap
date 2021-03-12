@@ -1,0 +1,40 @@
+//#############################################################################
+// Nintendo Switch Left Joycon (Using hid-nintendo driver)
+//#############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Nintendo Switch Left Joycon",
+
+    match: [(
+        driver:   ["nintendo", "joycon_serdev"],
+        vendor:   [0x057e],
+        product:  [0x2006],
+    )],
+
+    default_adapters: {
+        ["Gamepad"]: "JoyCon/Left/Gamepad-Horizontal",
+    },
+
+    buttons: {
+        "Up":    "BTN_DPAD_UP",
+        "Down":  "BTN_DPAD_DOWN",
+        "Left":  "BTN_DPAD_LEFT",
+        "Right": "BTN_DPAD_RIGHT",
+
+        "L":  "BTN_TL",
+        "ZL": "BTN_TL2",
+        "TL": "BTN_THUMBL",
+
+        "-": "BTN_SELECT",
+        "Capture": "BTN_Z",
+
+        "SL": "BTN_TR",
+        "SR": "BTN_TR2",
+    },
+
+    axes: {
+        "Stick-Left-X": "ABS_X",
+        "Stick-Left-Y": "ABS_Y",
+    },
+)

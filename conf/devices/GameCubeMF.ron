@@ -1,0 +1,41 @@
+//#############################################################################
+// Nintendo GameCube Controller (using Mayflash adapter)
+//#############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Nintendo Gamecube (Mayflash adapter)",
+
+    match: [(
+        vendor:  [0x0079],
+        product: [0x1844],
+    )],
+
+    default_adapters: {
+        ["Gamepad"]:  "GameCubeMF/Gamepad",
+    },
+
+    buttons: {
+        "A": 289,
+        "B": 290,
+        "X": 288,
+        "Y": 291,
+
+        "Z": 295,
+        "L": 292,
+        "R": 293,
+
+        "Start": 297,
+    },
+
+    axes: {
+        "Stick-X":  "ABS_X",
+        "Stick-Y":  "ABS_Y",
+        "C-Stick-X": "ABS_RZ",
+        "C-Stick-Y": "ABS_Z",
+        "Dpad-X": "ABS_HAT0X",
+        "Dpad-Y": "ABS_HAT0Y",
+        "L": "ABS_RX",
+        "R": "ABS_RY",
+    },
+)

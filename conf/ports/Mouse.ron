@@ -1,0 +1,25 @@
+//#############################################################################
+// Mouse
+//#############################################################################
+
+Port(
+    fullname: "Mouse",
+
+    product_id: 0x0002,
+    version:    0x0001,
+
+    motions: {
+        "X": "REL_X",
+        "Y": "REL_Y",
+        "Wheel-V": "REL_WHEEL",
+        "Wheel-H": "REL_HWHEEL",
+    },
+
+    buttons: {
+        "Left":    "BTN_LEFT",
+        "Right":   "BTN_RIGHT",
+        "Middle":  "BTN_MIDDLE",
+        "Back":    "BTN_BACK",
+        "Forward": "BTN_FORWARD",
+    },
+)

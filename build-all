@@ -1,0 +1,28 @@
+#! /bin/bash
+
+set -e
+
+CARGO=${CARGO:-cargo}
+MAVEN=${MAVEN:-mvn}
+dir="$(readlink -f "$(dirname "$0")")"
+
+"${dir}"/tools/evdev-constants/evdev-constants.sh
+
+# Desktop build
+$CARGO build \
+    --manifest-path "${dir}"/Cargo.toml \
+    --bin multitapd \
+    --bin multitapctl \
+    --lib \
+    "$@"
+${MAVEN} -f "${dir}"/multitap-ui -Dcorelib.args="$*" client:build -Pdesktop
+
+# Android build
+$CARGO build \
+      --manifest-path "${dir}"/Cargo.toml \
+      --target aarch64-linux-android \
+      --bin multitapd \
+      --bin multitapctl \
+      --lib \
+      "$@"
+${MAVEN} -f "${dir}"/multitap-ui -Dcorelib.args="$*" client:build -Pandroid

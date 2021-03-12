@@ -1,0 +1,44 @@
+//#############################################################################
+// Switch Pro Controller default adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "SwitchPro", match: "SwitchPro"),
+    ],
+
+    outputs: [
+        (name: "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("SwitchPro", "L"), ("SwitchPro", "R")],
+
+    map: { ("SwitchPro", "Gamepad"): [
+        Axis("Stick-Left-X",  "Stick-Left-X"),
+        Axis("Stick-Left-Y",  "Stick-Left-Y"),
+        Axis("Stick-Right-X", "Stick-Right-X"),
+        Axis("Stick-Right-Y", "Stick-Right-Y"),
+
+        //HatToButtons("Dpad-Y", "Dpad-Up",   "Dpad-Down"),
+        //HatToButtons("Dpad-X", "Dpad-Left", "Dpad-Right"),
+        Axis("Dpad-X", "Dpad-X"),
+        Axis("Dpad-Y", "Dpad-Y"),
+
+        Button("A", "Face-East"),
+        Button("B", "Face-South"),
+        Button("X", "Face-North"),
+        Button("Y", "Face-West"),
+
+        Button("+", "Start"),
+        Button("-", "Select"),
+        Button("Home", "Mode"),
+        Button("Capture", "Capture"),
+
+        Button("L", "Shoulder-Left"),
+        Button("R", "Shoulder-Right"),
+        ButtonToAxis("ZL", "Trigger-Left"),
+        ButtonToAxis("ZR", "Trigger-Right"),
+        Button("TL", "Stick-Left-Click"),
+        Button("TR", "Stick-Right-Click"),
+    ]},
+)

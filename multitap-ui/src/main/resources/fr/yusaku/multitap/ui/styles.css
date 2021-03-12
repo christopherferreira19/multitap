@@ -1,0 +1,11 @@
+.root {
+    -fx-base: rgba(45, 45, 45, 255); // dark
+}
+
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+.port {
+    -fx-border-color: #ffffff;
+}

@@ -1,0 +1,11 @@
+[package]
+name = "multitap-daemon-core"
+version = "0.0.1"
+authors = ["yusakufujikifr"]
+edition = "2018"
+
+[dependencies]
+multitap-core = { path = "../multitap-core" }
+
+slab = "~0.4.2"
+mio = { version = "~0.7.7", features = ["os-poll"] }

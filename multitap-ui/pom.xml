@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.yusaku</groupId>
+        <artifactId>multitap</artifactId>
+        <version>dev-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>multitap-ui</artifactId>
+    <version>dev-SNAPSHOT</version>
+
+    <name>multitap-ui</name>
+
+    <properties>
+        <multitap.basedir>${project.basedir}/..</multitap.basedir>
+        <corelib.args></corelib.args>
+        <main.class>fr.yusaku.multitap.ui.MultitapUI</main.class>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.graalvm.nativeimage</groupId>
+            <artifactId>svm</artifactId>
+            <version>${graalvm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>value</artifactId>
+            <version>2.8.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>annotate</artifactId>
+            <version>2.8.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                    <options>
+                        <option>-Djava.library.path=${project.basedir}/../target/debug</option>
+                    </options>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>fr.yusaku</groupId>
+                <artifactId>client-maven-plugin</artifactId>
+                <configuration>
+                    <target>${client.target}</target>
+                    <mainClass>${main.class}</mainClass>
+                    <nativeImageArgs>
+                        <nativeImageArg>--features=fr.yusaku.multitap.ui.core.CoreLibFeature</nativeImageArg>
+                        <nativeImageArg>-Dmaven.multitap.basedir=${multitap.basedir}</nativeImageArg>
+                        <nativeImageArg>-Dmaven.project.build.directory=${project.build.directory}</nativeImageArg>
+                        <nativeImageArg>-Dmaven.corelib.args=${corelib.args}</nativeImageArg>
+                        <nativeImageArg>-Dmaven.client.target=${client.target}</nativeImageArg>
+                    </nativeImageArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>desktop</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <client.target>host</client.target>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>fr.yusaku</groupId>
+                        <artifactId>client-maven-plugin</artifactId>
+                        <version>${client.maven.plugin.version}</version>
+                        <configuration>
+                            <target>${client.target}</target>
+                            <mainClass>${main.class}</mainClass>
+                            <additionalLibraries>
+                                <additionalLibrary>rt</additionalLibrary>
+                                <additionalLibrary>evdev</additionalLibrary>
+                                <additionalLibrary>appindicator3</additionalLibrary>
+                            </additionalLibraries>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>android</id>
+
+            <properties>
+                <client.target>android</client.target>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>fr.yusaku</groupId>
+                        <artifactId>client-maven-plugin</artifactId>
+                        <version>${client.maven.plugin.version}</version>
+                        <configuration>
+                            <target>${client.target}</target>
+                            <mainClass>${main.class}</mainClass>
+                            <additionalLibraryPaths>
+                                <additionalLibraryPath>${multitap.basedir}/libs/android</additionalLibraryPath>
+                            </additionalLibraryPaths>
+                            <additionalLibraries>
+                                <additionalLibrary>evdev</additionalLibrary>
+                            </additionalLibraries>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

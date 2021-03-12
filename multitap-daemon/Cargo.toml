@@ -1,0 +1,27 @@
+[package]
+name = "multitap-daemon"
+version = "0.0.1"
+authors = ["yusakufujikifr"]
+edition = "2018"
+
+default-run = "multitapd"
+autobins = false
+[[bin]]
+name = "multitapd"
+path = "src/main.rs"
+
+[dependencies]
+env_logger = "0.8.3"
+
+multitap-core        = { path = "../multitap-core" }
+multitap-daemon-core = { path = "../multitap-daemon-core" }
+
+serde = "~1.0.123"
+serde_derive = "~1.0.123"
+
+slab = "~0.4.2"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+multitap-daemon-linux = { path = "../multitap-daemon-linux" }
+[target.'cfg(target_os = "android")'.dependencies]
+multitap-daemon-android = { path = "../multitap-daemon-android" }

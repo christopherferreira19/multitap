@@ -1,0 +1,16 @@
+[package]
+name = "multitap-cli"
+version = "0.0.1"
+authors = ["yusakufujikifr"]
+edition = "2018"
+
+default-run = "multitapctl"
+autobins = false
+[[bin]]
+name = "multitapctl"
+path = "src/main.rs"
+
+[dependencies]
+env_logger = "0.8.3"
+multitap-core = { path = "../multitap-core" }
+structopt = "~0.3.21"

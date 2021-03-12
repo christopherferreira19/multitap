@@ -1,0 +1,23 @@
+//#############################################################################
+// Sony DualShock 4 default adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "DS4", match: "DS4"),
+    ],
+
+    outputs: [
+        (name: "Keyboard", match: "Keyboard"),
+    ],
+
+    autoplug: [],
+
+    map: { ("DS4", "Keyboard"): [
+        HatToButtons("Dpad-Y", "up",   "down"),
+        HatToButtons("Dpad-X", "left", "right"),
+
+        Button("cross",    "X"),
+        Button("circle",   "C"),
+    ]},
+)

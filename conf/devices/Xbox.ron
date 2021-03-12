@@ -1,0 +1,58 @@
+//#############################################################################
+// Xbox-like controller
+//##############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Xbox-like Controller",
+
+    match: [
+        // Generic xpad
+        (driver: ["xpad", "xpadneo"]),
+        // Xbox Controllers
+        (vendor: [0x045e], product: [0x0202, 0x0285, 0x0289, 0x028e, 0x028f, 0x02d1, 0x02dd, 0x02ea, 0x02fd, 0x0b12]),
+    ],
+
+    default_adapters: {
+        ["Gamepad"]: "Xbox/Gamepad",
+    },
+
+    buttons: {
+        "Dpad-Up":    "BTN_TRIGGER_HAPPY3",
+        "Dpad-Down":  "BTN_TRIGGER_HAPPY4",
+        "Dpad-Left":  "BTN_TRIGGER_HAPPY1",
+        "Dpad-Right": "BTN_TRIGGER_HAPPY2",
+
+        "A":     "BTN_SOUTH",
+        "B":     "BTN_EAST",
+        "X":     "BTN_NORTH",
+        "Y":     "BTN_WEST",
+
+        "LB":    "BTN_TL",
+        "LS":    "BTN_THUMBL",
+        "RB":    "BTN_TR",
+        "RS":    "BTN_THUMBR",
+
+        "Start": "BTN_START",
+        "Back":  "BTN_SELECT",
+        "Guide": "BTN_MODE",
+    },
+
+    axes: {
+        "Stick-Left-X":  "ABS_X",
+        "Stick-Left-Y":  "ABS_Y",
+        "Stick-Right-X": "ABS_RX",
+        "Stick-Right-Y": "ABS_RY",
+
+        "Dpad-X":  "ABS_HAT0X",
+        "Dpad-Y":  "ABS_HAT0Y",
+
+        "LT":      "ABS_Z",
+        "RT":      "ABS_RZ",
+    },
+
+    leds: (
+        match:   "xpad",
+        players: [6, 7, 8, 9],
+    ),
+)

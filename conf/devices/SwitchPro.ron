@@ -1,0 +1,47 @@
+//#############################################################################
+// Nintendo Switch Pro Controller (Using hid-nintendo driver)
+//#############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Nintendo Switch Pro Controller",
+
+    match: [(
+        driver:  ["nintendo"],
+        vendor:  [0x057e],
+        product: [0x2009],
+    )],
+
+    default_adapters: {
+        ["Gamepad"]:  "SwitchPro/Gamepad",
+    },
+
+    buttons: {
+        "A": "BTN_EAST",
+        "B": "BTN_SOUTH",
+        "X": "BTN_NORTH",
+        "Y": "BTN_WEST",
+
+        "L":  "BTN_TL",
+        "ZL": "BTN_TL2",
+        "TL": "BTN_THUMBL",
+        "R":  "BTN_TR",
+        "ZR": "BTN_TR2",
+        "TR": "BTN_THUMBR",
+
+        "+": "BTN_START",
+        "-": "BTN_SELECT",
+        "Home": "BTN_MODE",
+        "Capture": "BTN_Z",
+    },
+
+    axes: {
+        "Stick-Left-X":  "ABS_X",
+        "Stick-Left-Y":  "ABS_Y",
+        "Stick-Right-X": "ABS_RX",
+        "Stick-Right-Y": "ABS_RY",
+
+        "Dpad-X":  "ABS_HAT0X",
+        "Dpad-Y":  "ABS_HAT0Y",
+    },
+)

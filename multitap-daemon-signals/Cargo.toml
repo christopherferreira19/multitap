@@ -1,0 +1,12 @@
+[package]
+name = "multitap-daemon-signals"
+version = "0.0.1"
+authors = ["yusakufujikifr"]
+edition = "2018"
+
+[dependencies]
+multitap-core        = { path = "../multitap-core" }
+multitap-daemon-core = { path = "../multitap-daemon-core" }
+
+nix = "~0.19.1"
+mio = { version = "~0.7.7", features = ["os-poll", "os-ext"] }

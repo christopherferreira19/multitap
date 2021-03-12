@@ -1,0 +1,51 @@
+//#############################################################################
+// Generic Gamepad controller
+//#############################################################################
+
+Port(
+    fullname: "Gamepad",
+
+    product_id: 0x0003,
+    version:    0x0001,
+
+    slots: ["1", "2", "3", "4"],
+
+    axes: {
+        "Stick-Left-X":  ( id: "ABS_X",     min: -32768, max: 32767, flat: 128 ),
+        "Stick-Left-Y":  ( id: "ABS_Y",     min: -32768, max: 32767, flat: 128 ),
+        "Stick-Right-X": ( id: "ABS_RX",    min: -32768, max: 32767, flat: 128 ),
+        "Stick-Right-Y": ( id: "ABS_RY",    min: -32768, max: 32767, flat: 128 ),
+        "Trigger-Left":  ( id: "ABS_Z",     min:      0, max:   255, flat:   0 ),
+        "Trigger-Right": ( id: "ABS_RZ",    min:      0, max:   255, flat:   0 ),
+        "Dpad-X":        ( id: "ABS_HAT0X", min:     -1, max:     1, flat:   0 ),
+        "Dpad-Y":        ( id: "ABS_HAT0Y", min:     -1, max:     1, flat:   0 ),
+    },
+
+    buttons: {
+        "Dpad-Up":    "BTN_DPAD_UP",
+        "Dpad-Down":  "BTN_DPAD_DOWN",
+        "Dpad-Left":  "BTN_DPAD_LEFT",
+        "Dpad-Right": "BTN_DPAD_RIGHT",
+
+        "Face-North": "BTN_NORTH",
+        "Face-South": "BTN_SOUTH",
+        "Face-West":  "BTN_WEST",
+        "Face-East":  "BTN_EAST",
+
+        "Start":   "BTN_START",
+        "Select":  "BTN_SELECT",
+        "Mode":    "BTN_MODE",
+        "Capture": "BTN_Z",
+
+        "Shoulder-Left":  "BTN_TL",
+        "Shoulder-Right": "BTN_TR",
+
+        "Stick-Left-Click":  "BTN_THUMBL",
+        "Stick-Right-Click": "BTN_THUMBR",
+
+        "Rear-Left-Top":     "BTN_TRIGGER_HAPPY1",
+        "Rear-Left-Bottom":  "BTN_TRIGGER_HAPPY2",
+        "Rear-Right-Top":    "BTN_TRIGGER_HAPPY3",
+        "Rear-Right-Bottom": "BTN_TRIGGER_HAPPY4",
+    },
+)

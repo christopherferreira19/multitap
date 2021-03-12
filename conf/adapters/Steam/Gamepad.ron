@@ -1,0 +1,47 @@
+//#############################################################################
+// Steam Controller default adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "Steam", match: "Steam"),
+    ],
+
+    outputs: [
+        (name: "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("Steam", "Shoulder-Left"), ("Steam", "Shoulder-Right")],
+
+    map: { ("Steam", "Gamepad"): [
+        Axis("Stick-X", "Stick-Left-X"),
+        Axis("Stick-Y", "Stick-Left-Y"),
+        Axis("Trackpad-Right-X", "Stick-Right-X"),
+        Axis("Trackpad-Right-Y", "Stick-Right-Y"),
+
+        Button("Dpad-Up",    "Dpad-Up"),
+        Button("Dpad-Down",  "Dpad-Down"),
+        Button("Dpad-Left",  "Dpad-Left"),
+        Button("Dpad-Right", "Dpad-Right"),
+
+        Button("A", "Face-South"),
+        Button("B", "Face-East"),
+        Button("X", "Face-West"),
+        Button("Y", "Face-North"),
+
+        Button("Start",  "Start"),
+        Button("Select", "Select"),
+        Button("Steam",  "Mode"),
+
+        Button("Shoulder-Left",  "Shoulder-Left"),
+        Button("Shoulder-Right", "Shoulder-Right"),
+        Axis("Trigger-Left",   "Trigger-Left"),
+        Axis("Trigger-Right",  "Trigger-Right"),
+
+        Button("Stick-Click",          "Stick-Left-Click"),
+        Button("Trackpad-Right-Click", "Stick-Right-Click"),
+
+        Button("Rear-Left",  "Rear-Left-Top"),
+        Button("Rear-Right", "Rear-Right-Top"),
+    ]},
+)

@@ -1,0 +1,58 @@
+//#############################################################################
+// Nintendo Switch Joycon dual mode adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name:  "Left", match: "JoyCon/Left"),
+        (name: "Right", match: "JoyCon/Right"),
+    ],
+
+    outputs: [
+        (name:  "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("Left", "L"), ("Right", "R")],
+
+    map: {
+        ("Left", "Gamepad"): [
+            Axis("Stick-Left-X", "Stick-Left-X"),
+            Axis("Stick-Left-Y", "Stick-Left-Y"),
+
+            Button("Up",    "Dpad-Up"),
+            Button("Down",  "Dpad-Down"),
+            Button("Left",  "Dpad-Left"),
+            Button("Right", "Dpad-Right"),
+
+            Button("-", "Select"),
+            Button("Capture", "Capture"),
+
+            Button("L", "Shoulder-Left"),
+            ButtonToAxis("ZL", "Trigger-Left"),
+            Button("TL", "Stick-Left-Click"),
+
+            Button("SL", "Rear-Left-Top"),
+            Button("SR", "Rear-Left-Bottom"),
+        ],
+
+        ("Right", "Gamepad"): [
+            Axis("Stick-Right-X", "Stick-Right-X"),
+            Axis("Stick-Right-Y", "Stick-Right-Y"),
+
+            Button("A", "Face-East"),
+            Button("B", "Face-South"),
+            Button("X", "Face-North"),
+            Button("Y", "Face-West"),
+
+            Button("+", "Start"),
+            Button("Home", "Mode"),
+
+            Button("R", "Shoulder-Right"),
+            ButtonToAxis("ZR", "Trigger-Right"),
+            Button("TR", "Stick-Right-Click"),
+
+            Button("SR", "Rear-Right-Top"),
+            Button("SL", "Rear-Right-Bottom"),
+        ],
+    },
+)

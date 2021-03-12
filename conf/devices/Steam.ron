@@ -1,0 +1,57 @@
+//#############################################################################
+// Steam Controller
+//#############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Steam Controller",
+
+    match: [(
+        vendor:  [0x28de],
+        product: [0x1142],
+    )],
+
+    default_adapters: {
+        ["Gamepad"]:  "Steam/Gamepad",
+    },
+
+    buttons: {
+        "Dpad-Up":    "BTN_DPAD_UP",
+        "Dpad-Down":  "BTN_DPAD_DOWN",
+        "Dpad-Left":  "BTN_DPAD_LEFT",
+        "Dpad-Right": "BTN_DPAD_RIGHT",
+
+        "A": "BTN_SOUTH",
+        "B": "BTN_EAST",
+        "X": "BTN_NORTH",
+        "Y": "BTN_WEST",
+
+        "Start":  "BTN_START",
+        "Select": "BTN_SELECT",
+        "Steam":  "BTN_MODE",
+
+        "Shoulder-Left": "BTN_TL",
+        "Shoulder-Right": "BTN_TR",
+        "Trigger-Left":   "BTN_TL2",
+        "Trigger-Right":  "BTN_TR2",
+
+        "Trackpad-Left-Touch":  "BTN_THUMB",
+        "Trackpad-Right-Touch": "BTN_THUMB2",
+        "Stick-Click":          "BTN_THUMBL",
+        "Trackpad-Right-Click": "BTN_THUMBR",
+
+        "Rear-Left":   "BTN_GEAR_DOWN",
+        "Rear-Right":  "BTN_GEAR_UP",
+    },
+
+    axes: {
+        "Trackpad-Left-X":    "ABS_HAT0X",
+        "Trackpad-Left-Y":    "ABS_HAT0Y",
+        "Trackpad-Right-X":   "ABS_RX",
+        "Trackpad-Right-Y":   "ABS_RY",
+        "Stick-X":            "ABS_X",
+        "Stick-Y":            "ABS_Y",
+        "Trigger-Left":       "ABS_HAT2Y",
+        "Trigger-Right":      "ABS_HAT2X",
+    },
+)

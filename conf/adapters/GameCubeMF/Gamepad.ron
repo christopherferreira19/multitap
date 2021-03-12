@@ -1,0 +1,36 @@
+//#############################################################################
+// Nintendo Gamecube (using MayFlash adapter) default adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "GameCube", match: "GameCubeMF"),
+    ],
+
+    outputs: [
+        (name: "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("GameCube", "L"), ("GameCube", "R")],
+
+    map: { ("GameCube", "Gamepad"): [
+        Axis("Stick-X",  "Stick-Left-X"),
+        Axis("Stick-Y",  "Stick-Left-Y"),
+        Axis("C-Stick-X", "Stick-Right-X"),
+        Axis("C-Stick-Y", "Stick-Right-Y"),
+
+        HatToButtons("Dpad-Y", "Dpad-Up",   "Dpad-Down"),
+        HatToButtons("Dpad-X", "Dpad-Left", "Dpad-Right"),
+
+        Button("A", "Face-East"),
+        Button("B", "Face-South"),
+        Button("X", "Face-North"),
+        Button("Y", "Face-West"),
+
+        Button("Start", "Start"),
+
+        Button("Z", "Shoulder-Right"),
+        Axis("L", "Trigger-Left"),
+        Axis("R", "Trigger-Right"),
+    ]},
+)

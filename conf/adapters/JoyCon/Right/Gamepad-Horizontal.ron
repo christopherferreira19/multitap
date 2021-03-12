@@ -1,0 +1,31 @@
+//#############################################################################
+// Nintendo Switch Right Joycon vertical mode adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "JoyCon", match: "JoyCon/Right"),
+    ],
+
+    outputs: [
+        (name: "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("JoyCon", "SL"), ("JoyCon", "SR")],
+
+    map: { ("JoyCon", "Gamepad"): [
+        AxisToKeys("Stick-Right-X", "Dpad-Up",    "Dpad-Down", 50),
+        AxisToKeys("Stick-Right-Y", "Dpad-Right", "Dpad-Left", 50),
+
+        Button("A", "Face-South"),
+        Button("B", "Face-West"),
+        Button("X", "Face-East"),
+        Button("Y", "Face-North"),
+
+        Button("Home", "Select"),
+        Button("+",    "Start"),
+
+        Button("SL", "Shoulder-Left"),
+        Button("SR", "Shoulder-Right"),
+    ]},
+)

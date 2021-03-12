@@ -1,0 +1,49 @@
+//#############################################################################
+// Sony DualShock 4
+//#############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Sony DualShock 4",
+
+    match: [(
+        vendor:   [0x054c],
+        product:  [0x09cc],
+        driver:   ["sony"],
+    )],
+
+    default_adapters: {
+        ["Gamepad"]: "DS4/Gamepad",
+    },
+
+    buttons: {
+        "Circle":   "BTN_EAST",
+        "Cross":    "BTN_SOUTH",
+        "Triangle": "BTN_NORTH",
+        "Square":   "BTN_WEST",
+
+        "Options": "BTN_START",
+        "Share":   "BTN_SELECT",
+        "PS":      "BTN_MODE",
+
+        "L1": "BTN_TL",
+        "L2": "BTN_TL2",
+        "L3": "BTN_THUMBL",
+        "R1": "BTN_TR",
+        "R2": "BTN_TR2",
+        "R3": "BTN_THUMBR",
+    },
+
+    axes: {
+        "Stick-Left-X": "ABS_X",
+        "Stick-Left-Y": "ABS_Y",
+        "Stick-Right-X": "ABS_RX",
+        "Stick-Right-Y": "ABS_RY",
+
+        "Dpad-X":  "ABS_HAT0X",
+        "Dpad-Y":  "ABS_HAT0Y",
+
+        "L2": "ABS_Z",
+        "R2": "ABS_RZ",
+    },
+)

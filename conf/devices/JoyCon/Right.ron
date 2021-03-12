@@ -1,0 +1,40 @@
+//#############################################################################
+// Nintendo Switch Right Joycon (Using hid-nintendo driver)
+//#############################################################################
+#![enable(implicit_some)]
+
+Device(
+    fullname: "Nintendo Switch Right Joycon",
+
+    match: [(
+        driver:    ["nintendo", "joycon_serdev"],
+        vendor:    [0x057e],
+        product:   [0x2007],
+    )],
+
+    default_adapters: {
+        ["Gamepad"]:  "JoyCon/Right/Gamepad-Horizontal",
+    },
+
+    buttons: {
+        "A": "BTN_EAST",
+        "B": "BTN_SOUTH",
+        "X": "BTN_NORTH",
+        "Y": "BTN_WEST",
+
+        "R":  "BTN_TR",
+        "ZR": "BTN_TR2",
+        "TR": "BTN_THUMBR",
+
+        "+":    "BTN_START",
+        "Home": "BTN_MODE",
+
+        "SL": "BTN_TL",
+        "SR": "BTN_TL2",
+    },
+
+    axes: {
+        "Stick-Right-X": "ABS_RX",
+        "Stick-Right-Y": "ABS_RY",
+    },
+)

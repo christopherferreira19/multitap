@@ -1,0 +1,24 @@
+[workspace]
+
+members = [
+        "multitap-core-evdev",
+        "multitap-core",
+        "multitap-cli",
+        "multitap-daemon-core",
+        "multitap-daemon-signals",
+        "multitap-daemon-uds",
+        "multitap-daemon-evdev",
+        "multitap-daemon-udev",
+        "multitap-daemon-uevent",
+        "multitap-daemon-linux",
+        "multitap-daemon-android",
+        "multitap-daemon",
+        "multitap-ui-core",
+]
+
+default-members = [
+        "multitap-core",
+        "multitap-cli",
+        "multitap-daemon",
+        "multitap-ui-core",
+]

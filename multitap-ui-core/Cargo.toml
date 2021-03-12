@@ -1,0 +1,20 @@
+[package]
+name = "multitap-ui-core"
+version = "0.0.1"
+authors = ["yusakufujikifr"]
+edition = "2018"
+
+[lib]
+crate_type = ["cdylib", "staticlib"]
+
+[dependencies]
+env_logger = "0.8.3"
+multitap-core = { path = "../multitap-core" }
+
+jni = "0.19.0"
+
+
+[target.'cfg(target_os = "linux")'.dependencies]
+gtk-sys = "0.10.0"
+gtk = "0.9.0"
+libappindicator = "0.5.0"

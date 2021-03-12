@@ -1,0 +1,41 @@
+//#############################################################################
+// Xpad default adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "Xbox", match: "Xbox"),
+    ],
+
+    outputs: [
+        (name: "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("Xbox", "LB"), ("Xbox", "RB")],
+
+    map: { ("Xbox", "Gamepad"): [
+        Axis("Stick-Left-X",   "Stick-Left-X"),
+        Axis("Stick-Left-Y",   "Stick-Left-Y"),
+        Axis("Stick-Right-X",  "Stick-Right-X"),
+        Axis("Stick-Right-Y",  "Stick-Right-Y"),
+
+        Axis("Dpad-X", "Dpad-X"),
+        Axis("Dpad-Y", "Dpad-Y"),
+
+        Button("A", "Face-South"),
+        Button("B", "Face-East"),
+        Button("X", "Face-West"),
+        Button("Y", "Face-North"),
+
+        Button("Start", "Start"),
+        Button("Back",  "Select"),
+        Button("Guide", "Mode"),
+
+        Button("LB", "Shoulder-Left"),
+        Button("RB", "Shoulder-Right"),
+        Axis("LT", "Trigger-Left"),
+        Axis("RT", "Trigger-Right"),
+        Button("LS", "Stick-Left-Click"),
+        Button("RS", "Stick-Right-Click"),
+    ] },
+)

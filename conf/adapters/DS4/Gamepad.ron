@@ -1,0 +1,43 @@
+//#############################################################################
+// Sony DualShock 4 default adapter
+//#############################################################################
+
+Adapter(
+    inputs: [
+        (name: "DS4", match: "DS4"),
+    ],
+
+    outputs: [
+        (name: "Gamepad", match: "Gamepad"),
+    ],
+
+    autoplug: [("DS4", "L1"), ("DS4", "R1")],
+
+    map: { ("DS4", "Gamepad"): [
+        Axis("Stick-Left-X",   "Stick-Left-X"),
+        Axis("Stick-Left-Y",   "Stick-Left-Y"),
+        Axis("Stick-Right-X",  "Stick-Right-X"),
+        Axis("Stick-Right-Y",  "Stick-Right-Y"),
+
+        // HatToButtons("Dpad-Y", "Dpad-Up",   "Dpad-Down"),
+        // HatToButtons("Dpad-X", "Dpad-Left", "Dpad-Right"),
+        Axis("Dpad-X", "Dpad-X"),
+        Axis("Dpad-Y", "Dpad-Y"),
+
+        Button("Cross",    "Face-South"),
+        Button("Circle",   "Face-East"),
+        Button("Triangle", "Face-North"),
+        Button("Square",   "Face-West"),
+
+        Button("Options", "Start"),
+        Button("Share",   "Select"),
+        Button("PS",      "Mode"),
+
+        Button("L1", "Shoulder-Left"),
+        Button("R1", "Shoulder-Right"),
+        Axis("L2", "Trigger-Left"),
+        Axis("R2", "Trigger-Right"),
+        Button("L3", "Stick-Left-Click"),
+        Button("R3", "Stick-Right-Click"),
+    ]},
+)
